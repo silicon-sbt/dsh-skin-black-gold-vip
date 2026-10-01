@@ -1,0 +1,13 @@
+{
+  "name": "black-gold-vip-build",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "构建脚本：从本机 DSH 抽取品牌矢量路径，用 Chroma.js 生成「黑金 VIP」皮肤",
+  "scripts": {
+    "build": "node extract-brand-paths.mjs && node build-skin.mjs"
+  },
+  "devDependencies": {
+    "chroma-js": "^3.2.0"
+  }
+}

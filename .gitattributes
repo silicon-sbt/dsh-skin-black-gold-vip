@@ -1,0 +1,4 @@
+# 皮肤 CSS 会被 skin-center 逐行处理，强制 LF 避免换行差异带来的意外
+* text=auto eol=lf
+*.png binary
+*.jpg binary
