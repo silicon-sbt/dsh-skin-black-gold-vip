@@ -7,6 +7,11 @@
   <img src="black-gold-vip/preview/dark.png" width="420" alt="深色主题">
 </p>
 
+> **仓库定位**：本仓库是**构建源**（生成器 + 手动安装包）。可安装副本位于上游皮肤仓库
+> `zhu1090093659/dsh-skins` 的 `skins/black-gold-vip/`（收录 PR
+> [#31](https://github.com/zhu1090093659/dsh-skins/pull/31)），创意工坊
+> [dsh-market.com](https://dsh-market.com) 从那里构建一键安装。两处内容一致，改动请同步。
+
 ## 它改了什么
 
 | 位置 | 效果 |
@@ -68,6 +73,24 @@ build/              构建脚本（Chroma.js 色板 → 蒙版与 CSS 生成）
 install.ps1/.sh     一键装进 $DSH_HOME/skins
 CHANGELOG.md        版本记录
 THIRD_PARTY_LICENSES.md  品牌图形的 MIT 全文与商标声明
+```
+
+## 改动后同步到上游
+
+上游皮肤仓库只收纯资产目录（不含 `build/`），所以改完要推两份，并同步升 `sheet.json` 的 `version`：
+
+```sh
+# 1) 重跑构建（在 build/ 里跑 npm run build），产物落在 black-gold-vip/
+# 2) 提交并推送本仓库
+git add black-gold-vip && git commit -m "feat: ..." && git push
+# 3) 同步到上游皮肤仓库并开 PR
+cp -r black-gold-vip/. ../dsh-skins-fork/skins/black-gold-vip/
+cd ../dsh-skins-fork
+node scripts/skin-center-catalog-check.cjs --check   # 必须 PASS
+git checkout -b feat/update-black-gold-vip
+git add skins/black-gold-vip && git commit -m "feat(skins): update black-gold-vip"
+git push origin HEAD
+gh pr create --repo zhu1090093659/dsh-skins --base main --head silicon-sbt:feat/update-black-gold-vip
 ```
 
 ## 许可与归属
