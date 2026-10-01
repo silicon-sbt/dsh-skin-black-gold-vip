@@ -77,7 +77,7 @@ THIRD_PARTY_LICENSES.md  品牌图形的 MIT 全文与商标声明
 
 ## 改动后同步到上游
 
-上游皮肤仓库只收纯资产目录（不含 `build/`），所以改完要推两份，并同步升 `sheet.json` 的 `version`：
+上游皮肤仓库只收纯资产目录（不含 `build/`），所以改完要推两份，并同步升 `skin.json` 的 `version`：
 
 ```sh
 # 1) 重跑构建（在 build/ 里跑 npm run build），产物落在 black-gold-vip/
