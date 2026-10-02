@@ -192,19 +192,22 @@ const fillVars = (tpl, extra) => {
 const CSS = fillVars(CSS_T);
 
 const manifest = {
+  $schema: 'https://schemas.linxin666.org/dsh-skin/v2.json',
   skinManifestVersion: 2,
   id: 'black-gold-vip',
   name: '黑金 VIP',
   nameEn: 'Black Gold VIP',
   version: '2.0.0',
-  author: '由 DSH Agent 生成（Chroma.js 色板）',
-  tagline: '浅色暖金卡 / 深色黑金卡 · 金属金字标 · 金属金大鲸鱼',
-  description: '把左上角品牌区做成会员卡，开始会话页大鲸鱼同步金属化。双主题自适应：浅色用暖金卡（象牙底 + 渐变金框 + 深金标 + 黑底金字绶带），深色用黑金卡（近黑底 + 金框 + 亮金标 + 金底黑字绶带）。金属渐变由 Chroma.js 的 lch 插值生成，纯 CSS 的 data-URI 蒙版实现（未用 JS）。不声明任何设计 token、不改布局结构、不替换组件。',
-  tags: ['gold', 'vip', 'brand', 'logo', 'metal', 'card'],
-  accent: V.ACCENT,
-  order: 1,
-  contributes: { stylesheet: 'skin.css', patches: 'patches.css' },
+  author: 'silicon-sbt',
+  license: 'MIT',
+  licenseUrl: 'https://opensource.org/licenses/MIT',
+  tagline: '黑金会员卡品牌的左上角 · 金属金字标 · 金属金大鲸鱼',
+  description: '只给品牌标识上色：左上角品牌区做成会员卡（渐变金属边框、卡面打光、缓慢掠光），品牌字标与开始会话页大鲸鱼用五档金属金（Chroma.js 的 lch 插值生成），HARNESS 徽标改为绶带。双主题自适应——浅色用暖金卡（象牙底 + 深金标 + 黑底金字绶带），深色用黑金卡（近黑底 + 亮金标 + 金底黑字绶带）。不声明任何 --dsw-* token、不改布局结构、不替换组件，悬停摆尾动画保留。纯 CSS：金属渐变由 data-URI SVG 蒙版 + CSS 渐变实现（未用 hooks，用户皮肤的 hooks 需审核故不可用）。',
+  tags: ['black', 'gold', 'brand', 'logo', 'metal', 'css-only'],
+  accent: '#c9a227',
+  order: 103,
   preview: { light: 'preview/light.png', dark: 'preview/dark.png' },
+  contributes: { stylesheet: 'skin.css', patches: 'patches.css' },
 };
 fs.writeFileSync(path.join(SKIN, 'skin.json'), JSON.stringify(manifest, null, 2) + '\n');
 fs.writeFileSync(path.join(SKIN, 'patches.css'), CSS);
